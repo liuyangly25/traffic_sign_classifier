@@ -146,9 +146,9 @@ Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Priority road 		| Priority road   								| 
 | 70km/h  				| 60km/h 										|
 | Right-of-way			| Right-of-way									|
+| Priority road 		| Priority road   								| 
 | No vehicles	  		| No vehicles					 				|
 | stop					| stop      									|
 
@@ -159,23 +159,23 @@ The model was able to correctly guess 4 of the 5 traffic signs, which gives an a
 
 The certainty can be seen from the chart.
 
-(1). Image 1 - Priority road
+(1). Image 1 - 70km/h
 
 ![Test Probability 1][image9]
 
-(2). Image 2 - 70km/h
+(2). Image 2 - Right-of-way
 
 ![Test Probability 2][image10]
 
-(3). Image 2 - Right-of-way
+(3). Image 3 - Priority road
 
 ![Test Probability 3][image11]
 
-(4). Image 2 - No vehicles
+(4). Image 4 - No vehicles
 
 ![Test Probability 4][image12]
 
-(5). Image 2 - Stop
+(5). Image 5 - Stop
 
 ![Test Probability 5][image13]
 
