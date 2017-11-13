@@ -28,6 +28,8 @@ The goals / steps of this project are the following:
 [image11]: ./code_img/test_p3.png "Test Probability 3"
 [image12]: ./code_img/test_p4.png "Test Probability 4"
 [image13]: ./code_img/test_p5.png "Test Probability 5"
+[image14]: ./code_img/conv_visual1.png "Conv layer 1 visualization"
+[image15]: ./code_img/conv_visual2.png "Conv layer 2 visualization"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -234,4 +236,6 @@ For the Image 5, the model is relatively sure that this is a stop sign (probabil
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 ####1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
 
+![Conv1 Visual][image14]
 
+![Conv2 Visual][image15]
