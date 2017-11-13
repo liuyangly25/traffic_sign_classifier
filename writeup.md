@@ -1,6 +1,4 @@
-**Traffic Sign Recognition** 
-
-##Writeup Template
+## Traffic Sign Recognition
 
 **Build a Traffic Sign Recognition Project**
 
@@ -31,8 +29,8 @@ The goals / steps of this project are the following:
 [image14]: ./code_img/conv_visual1.png "Conv layer 1 visualization"
 [image15]: ./code_img/conv_visual2.png "Conv layer 2 visualization"
 
-## Rubric Points
-### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
+#### Rubric Points
+Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
 ---
 ### Writeup / README
@@ -41,9 +39,9 @@ You're reading it! and here is a link to my [project code](https://github.com/li
 
 There is also an html file which can be downloaded from this repo. Here is the link to the html [HTML code](https://github.com/liuyangly25/traffic_sign_classifier/blob/master/Traffic_Sign_Classifier.html).
 
-###Data Set Summary & Exploration
+### Data Set Summary & Exploration
 
-####1. Provide a basic summary of the data set. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
+#### 1. Provide a basic summary of the data set. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
 
 I used the pandas library to calculate summary statistics of the traffic
 signs data set:
@@ -54,7 +52,7 @@ signs data set:
 * The shape of a traffic sign image is (32, 32, 3)
 * The number of unique classes/labels in the data set is 43
 
-####2. Include an exploratory visualization of the dataset.
+#### 2. Include an exploratory visualization of the dataset.
 
 Here is an exploratory visualization of the data set. It is a bar chart showing the data distribution based on different signs.
 
@@ -62,9 +60,9 @@ Here is an exploratory visualization of the data set. It is a bar chart showing 
 
 The numbers are not same for each sign. The smallest amount is 180, however, the largest is around 2000. This will be a factor resulting in different accuracy for each sign.
 
-###Design and Test a Model Architecture
+### Design and Test a Model Architecture
 
-####1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
+#### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
 
 As a first step, I decided to convert the images to grayscale because grayscale image may performed better than 3-channel RGB image. It might has less noise than color image.
 
@@ -81,7 +79,7 @@ Here is some images from training set.
 ![Training Data][image3]
 
 
-####2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
+#### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
 My final model consisted of the following layers:
 
@@ -104,11 +102,11 @@ My final model consisted of the following layers:
 
  
 
-####3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+#### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 To train the model, I used the Adam Optimizer. Learning rate is 0.0007, batch size is 64, number of epochs is 20, Dropout is 0.5 for full connection layers.
 
-####4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+#### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
 * training set accuracy of 0.995
@@ -131,9 +129,9 @@ If a well known architecture was chosen:
  
 N/A
 
-###Test a Model on New Images
+### Test a Model on New Images
 
-####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+#### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
 Here are five German traffic signs that I found on the web:
 
@@ -142,7 +140,7 @@ Here are five German traffic signs that I found on the web:
 
 The second image might be difficult to classify because if there is some noise in this speed limit sign. The number is hard to classify. Compared with stop sign, which is the unique sign, speed limits signs is a group of similar signs.
 
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+#### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
 Here are the results of the prediction:
 
@@ -157,7 +155,7 @@ Here are the results of the prediction:
 
 The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. 
 
-####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+#### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
 The code for making predictions on my final model is located in the 52nd cell of the Ipython notebook, and the chart is in the 53th cell.
 
@@ -195,7 +193,7 @@ For the Image 2, the model is pretty sure that this is a Right-of-way sign (prob
 
 ![Test Probability 3][image11]
 
-For the Image 3, the model is relatively sure that this is a Priority road sign (probability of 1), and the image does contain a Priority road sign. The top five soft max probabilities were
+For the Image 3, the model is very sure that this is a Priority road sign (probability of 1), and the image does contain a Priority road sign. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -234,8 +232,14 @@ For the Image 5, the model is relatively sure that this is a stop sign (probabil
 | .000				    | Go straight of right      					|
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-####1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
+#### Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
+
+This is the Priority road sign visualization. For conv layer 1, all the line were shown clearly. We can see inner is empty, that is the important feature of this sign. And that is why the model is very sure that this is a Priority road sign.
 
 ![Conv1 Visual][image14]
+
+For conv layer 2, details can be seen. some details are very important and interesting, e.g.feature map7. I am guessing it means the empty inner part of this Priority road sign.
+
+
 
 ![Conv2 Visual][image15]
