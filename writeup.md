@@ -17,12 +17,12 @@ The goals / steps of this project are the following:
 
 [image1]: ./code_img/distribution.png "Visualization"
 [image2]: ./code_img/grey.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
+[image3]: ./code_img/visualdata.png "Data Visualization"
+[image4]: ./new_img/1.jpg "Traffic Sign 1"
+[image5]: ./new_img/2.jpg "Traffic Sign 2"
+[image6]: ./new_img/3.jpg "Traffic Sign 3"
+[image7]: ./new_img/4.jpg "Traffic Sign 4"
+[image8]: ./new_img/5.jpg "Traffic Sign 5"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -57,24 +57,21 @@ Here is an exploratory visualization of the data set. It is a bar chart showing 
 
 ####1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
 
-As a first step, I decided to convert the images to grayscale because ...
+As a first step, I decided to convert the images to grayscale because grayscale image may performed better than 3-channel RGB image. It might has less noise than color image.
 
-Here is an example of a traffic sign image before and after grayscaling.
+Samples of grayscale images shown below:
 
-![alt text][image2]
+![Grayscale][image2]
 
-As a last step, I normalized the image data because ...
+However, I commented out my grayscale because it does not increase validation accuracy a lot. The result is same as the validation accuracy without grayscale.
 
-I decided to generate additional data because ... 
+So, my preprocessing step is to normalize image dataset. Normalization will help the optimizer minimize the cost and find the global minimum instead of the local minimum.
 
-To add more data to the the data set, I used the following techniques because ... 
+The distribution of training data can be seen below.
 
-Here is an example of an original image and an augmented image:
+![Training Data][image3]
 
-![alt text][image3]
-
-The difference between the original data set and the augmented data set is the following ... 
-
+The numbers are not same for each sign. The smallest amount is 180, however, the largest is around 2000. This will be a factor resulting in different accuracy for each sign.
 
 ####2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
@@ -83,27 +80,31 @@ My final model consisted of the following layers:
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | Input         		| 32x32x3 RGB image   							| 
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
-|						|												|
-|						|												|
- 
+| Convolution 5x5     	| 1x1 stride, valid padding, outputs 28x28x6 	|
+| RELU					| Activation function							|
+| Max pooling	      	| 2x2 stride, valid padding, outputs 14x14x6 	|
+| Convolution 5x5	    | 1x1 stride, valid padding, outputs 10x10x16	|
+| RELU					| Activation function							|
+| Max pooling	      	| 2x2 stride, valid padding, outputs 5x5x16 	|
+| Fully connected		| Input 400, output 120							|
+| Dropout				| Dropout function 								|
+| Fully connected		| Input 120, output 84							|
+| Dropout				| Dropout function 								|
+| Output 				| Input 84, output 43							|
+| Softmax				| Final Activation Function						|
 
+ 
 
 ####3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model, I used an ....
+To train the model, I used the Adam Optimizer. Learning rate is 0.0007, batch size is 64, number of epochs is 20, Dropout is 0.5 for full connection layers.
 
 ####4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+* training set accuracy of 0.992
+* validation set accuracy of 0.953 
+* test set accuracy of 0.949
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
@@ -112,11 +113,14 @@ If an iterative approach was chosen:
 * Which parameters were tuned? How were they adjusted and why?
 * What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
 
+I used the LeNet architect at first without dropout. But the validation acurracy is not good. It was around 0.87. So, a dropout is added to the architecture with keep_prob = 0.5. Dropout actually prevent overfitting,it randomly drops the unit in my fully connection layers. This gives me a much better accurracy, that is ~0.95. The reason why keep_prob = 0.5 is that half units drops yield better validation accuracy. With keep_prob = 0.4, the accurary increased slowly when epoches interates, it need more epoches. With keep_prob = 0.6, the accurary increased faster when epoches interates, but finally accuracy is same as keep_prob = 0.5. So keep_prob = 0.5 is chosen for the final value.
+
 If a well known architecture was chosen:
 * What architecture was chosen?
 * Why did you believe it would be relevant to the traffic sign application?
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
  
+N/A
 
 ###Test a Model on New Images
 
@@ -124,8 +128,8 @@ If a well known architecture was chosen:
 
 Here are five German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+![New Image 1][image4] ![New Image 2][image5] ![New Image 3][image6] 
+![New Image 4][image7] ![New Image 5][image8]
 
 The first image might be difficult to classify because ...
 
