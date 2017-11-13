@@ -16,7 +16,7 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./code_img/distribution.png "Visualization"
-[image2]: ./code_img/grey.jpg "Grayscaling"
+[image2]: ./code_img/grey.png "Grayscaling"
 [image3]: ./code_img/visualdata.png "Data Visualization"
 [image4]: ./new_img/1.jpg "Traffic Sign 1"
 [image5]: ./new_img/2.jpg "Traffic Sign 2"
@@ -53,6 +53,8 @@ Here is an exploratory visualization of the data set. It is a bar chart showing 
 
 ![Sign Distribution][image1]
 
+The numbers are not same for each sign. The smallest amount is 180, however, the largest is around 2000. This will be a factor resulting in different accuracy for each sign.
+
 ###Design and Test a Model Architecture
 
 ####1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
@@ -67,11 +69,10 @@ However, I commented out my grayscale because it does not increase validation ac
 
 So, my preprocessing step is to normalize image dataset. Normalization will help the optimizer minimize the cost and find the global minimum instead of the local minimum.
 
-The distribution of training data can be seen below.
+Here is some images from training set.
 
 ![Training Data][image3]
 
-The numbers are not same for each sign. The smallest amount is 180, however, the largest is around 2000. This will be a factor resulting in different accuracy for each sign.
 
 ####2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
