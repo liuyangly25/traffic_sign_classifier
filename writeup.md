@@ -157,48 +157,79 @@ The model was able to correctly guess 4 of the 5 traffic signs, which gives an a
 
 ####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The certainty can be seen from the chart.
+The code for making predictions on my final model is located in the 52nd cell of the Ipython notebook, and the chart is in the 53th cell.
+
+The certainty can be seen from the chart below.
 
 (1). Image 1 - 70km/h
 
 ![Test Probability 1][image9]
 
+For the Image 1, the model is has a wrong prediction of 60km/h (probability of 0.806), but the image does contain a 70km/h sign. The top five soft max probabilities were
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| .806         			| 60km/h 	  									| 
+| .178     				| Bicycles crossing 							|
+| .005					| Wild animal crossing							|
+| .004	      			| Road working					 				|
+| .003				    | No Vehicles 	     							|
+
 (2). Image 2 - Right-of-way
 
 ![Test Probability 2][image10]
+
+For the Image 2, the model is pretty sure that this is a Right-of-way sign (probability of 0.999), and the image does contain a Right-of-way sign. The top five soft max probabilities were
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| .999         			| Right of way   								| 
+| .000     				| Pedestrians 									|
+| .000					| Double Curve									|
+| .000	      			| Beware of ice/snow			 				|
+| .000				    | Slippery Road      							|
 
 (3). Image 3 - Priority road
 
 ![Test Probability 3][image11]
 
+For the Image 3, the model is relatively sure that this is a Priority road sign (probability of 1), and the image does contain a Priority road sign. The top five soft max probabilities were
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 1         			| Priority road   								| 
+| .00     				| End of no passing 							|
+| .00					| No entry										|
+| .00	      			| Roundabout mandatory							|
+| .00				    | End of all speed and passing limits      		|
+
 (4). Image 4 - No vehicles
 
 ![Test Probability 4][image12]
+
+For the Image 4, the model is pretty sure that this is a No vehicles (probability of 0.948), and the image does contain a No vehicles sign. The top five soft max probabilities were
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| .948         			| No vehicles   								| 
+| .027     				| 50km/h 										|
+| .018					| 30km/h										|
+| .002	      			| 70km/h						 				|
+| .001				    | Turn right ahead     							|
 
 (5). Image 5 - Stop
 
 ![Test Probability 5][image13]
 
-
-
-
-
-
-
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
-
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+For the Image 5, the model is relatively sure that this is a stop sign (probability of 0.999), and the image does contain a stop sign. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
-
-
-For the second image ... 
+| .999         			| Stop sign   									| 
+| .000     				| No entry 										|
+| .000					| Road work										|
+| .000	      			| End of all speeds and passing limits			|
+| .000				    | Go straight of right      					|
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 ####1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
