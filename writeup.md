@@ -37,7 +37,7 @@ Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/4
 
 You're reading it! and here is a link to my [project code](https://github.com/liuyangly25/traffic_sign_classifier/blob/master/Traffic_Sign_Classifier.ipynb).
 
-There is also an html file which can be downloaded from this repo. Here is the link to the html [HTML code](https://github.com/liuyangly25/traffic_sign_classifier/blob/master/Traffic_Sign_Classifier.html).
+There is also an html file which can be downloaded from this repo. Here is the link to the html [HTML code](https://github.com/liuyangly25/traffic_sign_classifier/blob/master/report.html).
 
 ### Data Set Summary & Exploration
 
