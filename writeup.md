@@ -15,8 +15,8 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
+[image1]: ./code_img/distribution.png "Visualization"
+[image2]: ./code_img/grey.jpg "Grayscaling"
 [image3]: ./examples/random_noise.jpg "Random Noise"
 [image4]: ./examples/placeholder.png "Traffic Sign 1"
 [image5]: ./examples/placeholder.png "Traffic Sign 2"
@@ -30,7 +30,9 @@ The goals / steps of this project are the following:
 ---
 ### Writeup / README
 
-You're reading it! and here is a link to my [project code](https://github.com/liuyangly25/traffic_sign_classifier/blob/master/Traffic_Sign_Classifier.ipynb)
+You're reading it! and here is a link to my [project code](https://github.com/liuyangly25/traffic_sign_classifier/blob/master/Traffic_Sign_Classifier.ipynb).
+
+There is also an html file which can be downloaded from this repo. Here is the link to the html [HTML code](https://github.com/liuyangly25/traffic_sign_classifier/blob/master/Traffic_Sign_Classifier.html).
 
 ###Data Set Summary & Exploration
 
@@ -47,9 +49,9 @@ signs data set:
 
 ####2. Include an exploratory visualization of the dataset.
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data distribution.
+Here is an exploratory visualization of the data set. It is a bar chart showing the data distribution based on different signs.
 
-![alt text][image1]
+![Sign Distribution][image1]
 
 ###Design and Test a Model Architecture
 
