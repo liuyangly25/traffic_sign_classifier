@@ -243,3 +243,11 @@ For conv layer 2, details can be seen. some details are very important and inter
 
 
 ![Conv2 Visual][image15]
+
+
+### Future work
+
+1. The total number of each traffic sign is different, so there is some work remaining to create additional training data.
+
+2. There is a lot of other preprocessing method beside grayscaling, so there is other method worth a try in the future, e.g. transform image from RGB to YUV
+.
